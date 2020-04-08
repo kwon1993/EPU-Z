@@ -8,5 +8,5 @@
 .idea/
 
 #custom
-application.properties
-application.yml
+EPU-Z/src/main/resources/application.yml
+EPU-Z/src/main/resources/application.properties
