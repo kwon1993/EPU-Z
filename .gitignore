@@ -1,0 +1,12 @@
+#Mac OS
+*.DS_Store
+
+#Eclipse Metadata
+.metadata
+
+#intelij
+.idea/
+
+#custom
+application.properties
+application.yml

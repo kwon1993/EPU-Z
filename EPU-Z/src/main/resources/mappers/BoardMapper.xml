@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.epuz.web.mapper.BoardMapper">
+
+	<select id="freeBoardList" resultType="FreeBoardListDTO">
+		SELECT
+		F.POST_NUMBER postNumber,
+		F.TITLE title,
+		M.NICKNAME writer,
+		F.WRITE_DATE writeDate,
+		F.VIEW_COUNT viewCount,
+		F.REPLY_COUNT replyCount
+		FROM
+		FREE_BOARD F,
+		MEMBER M
+		WHERE
+		F.WRITER = M.MEMBER_NUMBER
+		ORDER BY postNumber DESC
+	</select>
+	
+	<select id="freeBoardPost" resultType="FreeBoardPostDTO">
+		SELECT
+		F.POST_NUMBER postNumber,
+		F.TITLE title,
+		M.NICKNAME writer,
+		F.CONTENT content,
+		F.WRITE_DATE writeDate,
+		F.VIEW_COUNT viewCount,
+		F.REPLY_COUNT replyCount
+		FROM
+		FREE_BOARD F,
+		MEMBER M
+		WHERE
+		F.WRITER = M.MEMBER_NUMBER AND
+		F.POST_NUMBER = #{param1}
+	</select>
+
+</mapper>
