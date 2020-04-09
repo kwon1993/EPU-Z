@@ -36,5 +36,12 @@
 		F.WRITER = M.MEMBER_NUMBER AND
 		F.POST_NUMBER = #{param1}
 	</select>
+	
+	<insert id="freeBoardRegistration">
+		INSERT INTO FREE_BOARD
+		(TITLE,	WRITER,	CONTENT)
+		VALUES
+		(#{param1},#{param2},#{param3})
+	</insert>
 
 </mapper>

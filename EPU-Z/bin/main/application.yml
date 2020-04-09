@@ -2,8 +2,8 @@ spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://epuz.crqrcxnf62hg.ap-northeast-2.rds.amazonaws.com:3306/epuz
-    username: username34
-    password: password34
+    username: username
+    password: password
     
 mybatis:
   mapper-locations:

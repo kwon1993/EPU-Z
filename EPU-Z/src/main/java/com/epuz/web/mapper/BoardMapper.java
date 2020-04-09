@@ -13,5 +13,7 @@ public interface BoardMapper {
 	public List<FreeBoardListDTO> freeBoardList();
 	
 	public FreeBoardPostDTO freeBoardPost(int postNumber);
+	
+	public void freeBoardRegistration(String title, long writer, String content);
 
 }

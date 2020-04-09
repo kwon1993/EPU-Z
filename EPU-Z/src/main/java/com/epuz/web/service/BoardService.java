@@ -22,5 +22,9 @@ public class BoardService {
 	public FreeBoardPostDTO freeBoardPost(int postNumber) {
 		return boardMapper.freeBoardPost(postNumber);
 	}
+	
+	public void FreeBoardRegistration(String title, long writer, String content) {
+		boardMapper.freeBoardRegistration(title, writer, content);
+	}
 
 }

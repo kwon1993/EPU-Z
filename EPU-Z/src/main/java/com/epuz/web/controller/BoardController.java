@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.epuz.web.dto.FreeBoardRegistrationDTO;
 import com.epuz.web.service.BoardService;
 
 @Controller
@@ -22,10 +24,21 @@ public class BoardController {
 		return "board/freeBoardList";
 	}
 	
-	@GetMapping("freeBoardPost")
+	@GetMapping("/freeBoardPost")
 	public String freeBoardPost(@RequestParam("postNumber") int postNumber, Model model) {
 		model.addAttribute("freeBoardPost", boardService.freeBoardPost(postNumber));
 		return "board/freeBoardPost";
+	}
+	
+	@GetMapping("/freeBoardRegistration")
+	public String freeBoardRegistration(Model model) {
+		return "board/freeBoardRegistration";
+	}
+	
+	@PostMapping("/freeBoardRegistration")
+	public String freeBoardRegistration(FreeBoardRegistrationDTO freeBoardRegistrationDTO, Model model) {
+		boardService.FreeBoardRegistration(freeBoardRegistrationDTO.getTitle(), freeBoardRegistrationDTO.getWriter(), freeBoardRegistrationDTO.getContent());
+		return "redirect:board/freeBoardList";
 	}
 
 }
