@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>EPU-Z : 자유게시판 : 글 수정</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<form action="freeBoardModify" method="post" class="form">
+		<input type="hidden" name="postNumber" th:value="${freeBoardModifyPage.postNumber}">
+		<div>
+			<h2>자유게시판</h2>
+		</div>
+		<div>
+			<input type="text" id="title" name="title" th:value="${freeBoardModifyPage.title}" placeholder="제목">
+		</div>
+		<textarea id="content" name="content" class="textarea">[[*{freeBoardModifyPage.content}]]</textarea>
+		<button type="submit" class="btn btn-default" style="float: right;">수정</button>
+	</form>
+</body>
+</html>

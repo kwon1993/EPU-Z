@@ -43,5 +43,29 @@
 		VALUES
 		(#{param1},#{param2},#{param3})
 	</insert>
+	
+	<select id="freeBoardModifyPage" resultType="freeBoardModifyDTO">
+		SELECT
+		POST_NUMBER postNumber,
+		TITLE title,
+		CONTENT content
+		FROM
+		FREE_BOARD
+		WHERE
+		POST_NUMBER = #{param1}
+	</select>
+	
+	<update id="freeBoardModify">
+		UPDATE FREE_BOARD
+		SET
+		TITLE = #{param2},
+		CONTENT = #{param3}
+		WHERE POST_NUMBER = #{param1}
+	</update>
+	
+	<delete id="freeBoardDelete">
+		DELETE FROM FREE_BOARD
+		WHERE POST_NUMBER = #{param1}
+	</delete>
 
 </mapper>
