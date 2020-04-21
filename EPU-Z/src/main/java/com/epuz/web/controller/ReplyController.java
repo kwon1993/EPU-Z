@@ -19,7 +19,7 @@ public class ReplyController {
 	ReplyService replyService;
 
 	@GetMapping("replyList")
-	public ResponseEntity<ArrayList<FreeBoardReplyDTO>> replyList(@PathVariable("postNumber") long postNumber){
+	public ResponseEntity<ArrayList<FreeBoardReplyDTO>> freeBoardReplyList(@PathVariable("postNumber") long postNumber){
 		ResponseEntity<ArrayList<FreeBoardReplyDTO>> entity = null;
 		
 		try {
