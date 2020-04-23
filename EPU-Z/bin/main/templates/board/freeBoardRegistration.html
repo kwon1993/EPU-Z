@@ -8,6 +8,9 @@
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/public.css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+	<script src="/js/summernote.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -43,7 +46,7 @@
 				</div>
 				<a href="#board" data-parent="#accordion" data-toggle="collapse" class="list-group-item"> 게시판 </a>
 				<div class="collapse" id="board">
-					<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;자유게시판</a>
+					<a href="freeBoardList" class="list-group-item">&nbsp;&nbsp;&nbsp;자유게시판</a>
 					<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;질문게시판</a>
 				 	<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;사용기 / 리뷰</a>
 					<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;팁 / 강좌</a>
@@ -55,14 +58,17 @@
 			<div>
 				<h2>자유게시판</h2>
 			</div>
+			<hr>
 			<form action="freeBoardRegistration" method="post" class="form">
 				<div>
-					<input type="text" id="title" name="title" placeholder="제목">
+					<input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력하세요.">
 				</div>
+				<hr>
 				<div>
-					<input type="number" id="writer" name="writer" placeholder="작성자">
+					<input type="number" class="form-control" id="writer" name="writer" placeholder="작성자">
 				</div>
-				<textarea id="content" name="content" class="textarea"></textarea>
+				<hr>
+				<textarea id="summernote" name="content" class="summernote"></textarea>
 				<button type="submit" class="btn btn-primary" value="쓰기" style="float: right;">쓰기</button>
 			</form>
 		</div>

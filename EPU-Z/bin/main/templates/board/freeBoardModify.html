@@ -8,6 +8,9 @@
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/public.css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+	<script src="/js/summernote.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -43,7 +46,7 @@
 				</div>
 				<a href="#board" data-parent="#accordion" data-toggle="collapse" class="list-group-item"> 게시판 </a>
 				<div class="collapse" id="board">
-					<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;자유게시판</a>
+					<a href="freeBoardList" class="list-group-item">&nbsp;&nbsp;&nbsp;자유게시판</a>
 					<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;질문게시판</a>
 				 	<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;사용기 / 리뷰</a>
 					<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;팁 / 강좌</a>
@@ -57,15 +60,19 @@
 				<div>
 					<h2>자유게시판</h2>
 				</div>
+				<hr>
 				<div>
-					<input type="text" id="title" name="title" th:value="${freeBoardModifyPage.title}" placeholder="제목">
+					<input type="text" class="form-control" id="title" name="title" th:value="${freeBoardModifyPage.title}" placeholder="제목">
 				</div>
-				<textarea id="content" name="content" class="textarea">[[*{freeBoardModifyPage.content}]]</textarea>
+				<hr>
+				<textarea id="summernote" name="content" class="summernote">[[*{freeBoardModifyPage.content}]]</textarea>
+				<!-- <textarea id="content" name="content" class="textarea form-control">[[*{freeBoardModifyPage.content}]]</textarea> -->
 				<button type="submit" class="btn btn-primary" style="float: right;">수정</button>
 			</form>
 		</div>
 
 		<footer> </footer>
+		
 	</div>
 </body>
 </html>

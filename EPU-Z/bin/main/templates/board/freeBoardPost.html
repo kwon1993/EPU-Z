@@ -56,15 +56,18 @@
 				<div>
 					<h2>자유게시판</h2>
 				</div>
+				<hr>
 				<div>
 					<h3 th:text="${freeBoardPost.title}"></h3>
 					<strong th:text="${freeBoardPost.viewCount}"></strong>
 				</div>
+				<hr>
 				<div>
 					<strong th:text="${freeBoardPost.writer}"></strong>
 					<span th:text="${freeBoardPost.writeDate}"></span>
 				</div>
-				<div th:text="${freeBoardPost.content}"></div>
+				<div th:utext="${freeBoardPost.content}"></div>
+				<hr>
 			</form>
 			<form action="freeBoardDelete" method="get" class="form">
 				<input type="hidden" name="postNumber" th:value="${freeBoardPost.postNumber}">
@@ -74,6 +77,7 @@
 				<input type="hidden" name="postNumber" th:value="${freeBoardPost.postNumber}">
 				<button type="submit" class="btn btn-primary" style="float: right;">수정</button>
 			</form>
+			<hr>
 			<form>
 				<ul class="timeline">
 					<li class="time-label" id="repliesDiv">
