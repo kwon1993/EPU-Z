@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>[[*{freeBoardPost.title}]]</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/public.css">
+</head>
+<body>
+	<div class="container">
+		<div class="header navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="freeBoardList">EPU-Z</a>
+					<ul class="navbar-nav navbar-right visible-xs xs-inline pull-right">
+						<li>
+							<a href="#"><span class="glyphicon glyphicon-user"></span></a>
+							<a href="#"><span class="glyphicon glyphicon-log-in"></span></a>
+						</li>
+					</ul>
+				</div>
+				<ul class="nav navbar-nav navbar-right hidden-xs">
+					<li>
+						<a href="#"><span class="glyphicon glyphicon-user"></span>회원가입</a>
+					</li>
+					<li>
+						<a href="#"><span class="glyphicon glyphicon-log-in"></span>로그인</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="sidebar col-md-3 col-lg-2">
+			<div class="panel list-group">
+				<a href="#info" data-parent="#accordion" data-toggle="collapse"	class="list-group-item"> 정보 </a>
+				<div class="collapse" id="info">
+					<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;CPU</a>
+					<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;GPU</a>
+					<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;MB</a>
+					<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;APPLE</a>
+				</div>
+				<a href="#board" data-parent="#accordion" data-toggle="collapse" class="list-group-item"> 게시판 </a>
+				<div class="collapse" id="board">
+					<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;자유게시판</a>
+					<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;질문게시판</a>
+				 	<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;사용기 / 리뷰</a>
+					<a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;팁 / 강좌</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="section col-md-9 col-lg-10">
+			<form class="form">
+				<div>
+					<h2>자유게시판</h2>
+				</div>
+				<hr>
+				<div>
+					<h3 th:text="${freeBoardPost.title}"></h3>
+					<strong th:text="${freeBoardPost.viewCount}"></strong>
+				</div>
+				<hr>
+				<div>
+					<strong th:text="${freeBoardPost.writer}"></strong>
+					<span th:text="${freeBoardPost.writeDate}"></span>
+				</div>
+				<div th:utext="${freeBoardPost.content}"></div>
+				<hr>
+			</form>
+			<form action="freeBoardDelete" method="get" class="form">
+				<input type="hidden" name="postNumber" th:value="${freeBoardPost.postNumber}">
+				<button type="submit" class="btn btn-danger" style="float: right;">삭제</button>
+			</form>
+			<form action="freeBoardModify" method="get" class="form">
+				<input type="hidden" name="postNumber" th:value="${freeBoardPost.postNumber}">
+				<button type="submit" class="btn btn-primary" style="float: right;">수정</button>
+			</form>
+			<hr>
+			<form>
+				<ul class="timeline">
+					<li class="time-label" id="repliesDiv">
+						<h5>글쓴이</h5><h5>시간</h5>
+						<h4>내용</h4>
+					</li>
+				</ul>
+			</form>
+		</div>
+
+		<footer> </footer>
+	</div>
+</body>
+</html>

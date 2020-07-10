@@ -85,8 +85,13 @@ th {
 	text-align: center;
 }
 
-.section {
+.white {
 	color: white;
+}
+
+.inputarea {
+	background-color: black !important;
+	color: white !important;
 }
 
 textarea {
@@ -95,4 +100,8 @@ textarea {
 
 input {
 	background-color: black;
+}
+
+.ck-editor__editable {
+	min-height: 300px;
 }

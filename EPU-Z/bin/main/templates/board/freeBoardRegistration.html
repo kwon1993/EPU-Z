@@ -4,13 +4,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>EPU-Z : 자유게시판 : 글쓰기</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/public.css">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
-	<script src="/js/summernote.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/public.css?ver=3">
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -56,24 +55,64 @@
 
 		<div class="section col-md-9 col-lg-10">
 			<div>
-				<h2>자유게시판</h2>
+				<h2 class="white">자유게시판</h2>
 			</div>
 			<hr>
-			<form action="freeBoardRegistration" method="post" class="form">
+			<form action="freeBoardRegistration" method="post" class="form" id="post">
 				<div>
-					<input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력하세요.">
+					<input type="text" class="form-control inputarea" id="title" name="title" placeholder="제목을 입력하세요.">
 				</div>
 				<hr>
 				<div>
-					<input type="number" class="form-control" id="writer" name="writer" placeholder="작성자">
+					<input type="number" class="form-control inputarea" id="writer" name="writer" placeholder="작성자">
 				</div>
 				<hr>
-				<textarea id="summernote" name="content" class="summernote"></textarea>
+				<textarea id="summernote" name="content" class="inputarea"></textarea>
 				<button type="submit" class="btn btn-primary" value="쓰기" style="float: right;">쓰기</button>
 			</form>
 		</div>
 
 		<footer> </footer>
+		<script>
+			$(document).ready(function() {
+				$(function(){
+					$('#summernote').summernote({
+						height: 300,
+						fontNames : [ '맑은고딕', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', ],
+						fontNamesIgnoreCheck : [ '맑은고딕' ],
+						focus: true,
+						
+						callbacks: {
+							onImageUpload: function(files, editor, welEditable) {
+					            for (var i = files.length - 1; i >= 0; i--) {
+					            	sendFile(files[i], this);
+					            }
+					        }
+						}
+						
+					});
+				
+				})
+				
+				function sendFile(file, el) {
+					var form_data = new FormData();
+				     	form_data.append('file', file);
+				     	$.ajax({
+				       	data: form_data,
+				       	type: "POST",
+				       	url: 'fileupload',
+				       	cache: false,
+				       	contentType: false,
+				       	enctype: 'multipart/form-data',
+				       	processData: false,
+				       	success: function(img_name) {
+				         		$(el).summernote('editor.insertImage', img_name);
+				       	}
+				     	});
+				   }
+			});
+
+		</script>
 	</div>
 </body>
 </html>

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.epuz.web.domain.PageSet;
 import com.epuz.web.dto.FreeBoardListDTO;
 import com.epuz.web.dto.FreeBoardModifyDTO;
 import com.epuz.web.dto.FreeBoardPostDTO;
@@ -16,8 +17,16 @@ public class BoardService {
 	@Autowired
 	public BoardMapper boardMapper;
 	
-	public List<FreeBoardListDTO> freeBoardList(){
-		return boardMapper.freeBoardList();
+	public List<FreeBoardListDTO> freeBoardListTemp(){
+		return boardMapper.freeBoardListTemp();
+	}
+	
+	public int freeBoardListCount(PageSet pageSet) {
+		return boardMapper.countPaging(pageSet);
+	}
+	
+	public List<FreeBoardListDTO> freeBoardList(PageSet pageSet){
+		return boardMapper.freeBoardList(pageSet);
 	}
 	
 	public FreeBoardPostDTO freeBoardPost(int postNumber) {
@@ -39,5 +48,6 @@ public class BoardService {
 	public void FreeBoardDelete(long postNumber) {
 		boardMapper.freeBoardDelete(postNumber);
 	}
+	
 
 }
