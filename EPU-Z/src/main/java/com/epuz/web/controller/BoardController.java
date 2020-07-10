@@ -32,7 +32,6 @@ public class BoardController {
 	
 	@GetMapping("/freeBoardList")
 	public String freeBoardList(PageSet pageSet, Model model) {
-//		model.addAttribute("freeBoardList", boardService.freeBoardList());
 		model.addAttribute("freeBoardList", boardService.freeBoardList(pageSet));
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setPageSet(pageSet);
