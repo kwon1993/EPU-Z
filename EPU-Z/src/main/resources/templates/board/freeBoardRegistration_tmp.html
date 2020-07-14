@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<title>EPU-Z : 자유게시판</title>
+	<link href="/css/styles.css" rel="stylesheet" />
+	<link href="/css/pagination.css" rel="stylesheet" />
+	<link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+<body class="sb-nav-fixed">
+
+	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+	    <a class="navbar-brand" href="freeBoardList">EPU-Z</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+	    <!-- Navbar Search-->
+	    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+	        <div class="input-group">
+	            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+	            <div class="input-group-append">
+	                <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+	            </div>
+	        </div>
+	    </form>
+	    <!-- Navbar-->
+	    <ul class="navbar-nav ml-auto ml-md-0">
+	        <li class="nav-item dropdown">
+	            <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+	            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+	                <a class="dropdown-item" href="#">설정</a><a class="dropdown-item" href="#">추가옵션</a>
+	                <div class="dropdown-divider"></div>
+	                <a class="dropdown-item" href="login.html">로그아웃</a>
+	            </div>
+	        </li>
+	    </ul>
+	</nav>
+
+	<div id="layoutSidenav">
+	    <div id="layoutSidenav_nav">
+	        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+	            <div class="sb-sidenav-menu">
+	                <div class="nav">
+	                    <div class="sb-sidenav-menu-heading">정보</div>
+	                    	<a class="nav-link" href="#">CPU</a>
+	                    	<a class="nav-link" href="#">GPU</a>
+	                    	<a class="nav-link" href="#">MB</a>
+	                    	<a class="nav-link" href="#">APPLE</a>
+	                    <div class="sb-sidenav-menu-heading">게시판</div>
+	                    	<a class="nav-link" href="#">자유게시판</a>
+	                    	<a class="nav-link" href="#">질문게시판</a>
+	                    	<a class="nav-link" href="#">사용기 / 리뷰</a>
+	                    	<a class="nav-link" href="#">팁 / 강좌</a>
+	                </div>
+	            </div>
+	            <div class="sb-sidenav-footer">
+	                <div class="small">Logged in as:</div>
+	                EPU-Z
+	            </div>
+	        </nav>
+	    </div>
+	    <div id="layoutSidenav_content">
+	        <main>
+	            <div class="container-fluid">
+	                <h1 class="mt-4">자유게시판</h1>
+	                <div class="card mb-4">
+	                    <div class="card-body">자유게시판 설명</div>
+	                </div>
+	                <div class="card mb-4">
+	                	<form>
+		                    <div class="card-header"><input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력하세요"></div>
+		                    <div class="card-body">
+		                    
+		                    	<div>
+		                    		<input type="number" class="form-control" id="writer" name="writer" placeholder="작성자">
+		                    		<hr>
+		                    		<textarea id="summernote" name="content" class="inputarea"></textarea>
+		                    		<button type="submit" class="btn btn-primary" value="쓰기" style="float: right;">쓰기</button>
+		                    	</div>
+		                    	
+		                    </div>
+	                	</form>
+	                    
+						<hr>
+						<form>
+							<ul class="timeline">
+								<li class="time-label" id="repliesDiv">
+									<h5>글쓴이</h5><h5>시간</h5>
+									<h4>내용</h4>
+								</li>
+							</ul>
+						</form>
+	                </div>
+	            </div>
+	        </main>
+	        <footer class="py-4 bg-light mt-auto">
+	            <div class="container-fluid">
+	                <div class="d-flex align-items-center justify-content-between small">
+	                    <div class="text-muted">Copyright &copy; EPU-Z 2020</div>
+	                    <div>
+	                        <a href="#">Privacy Policy</a>
+	                        &middot;
+	                        <a href="#">Terms &amp; Conditions</a>
+	                    </div>
+	                </div>
+	            </div>
+	        </footer>
+	    </div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+	<script src="/js/scripts.js"></script>
+</body>
+</html>
